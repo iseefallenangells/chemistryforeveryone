@@ -85,6 +85,22 @@ st.markdown("""
     section[data-testid="stSidebar"] {
         background-color: #ffffff;
         border-right: 1px solid #efefef;
+        /* Красный цвет для заголовков метрик (MW, LogP, TPSA, Lipinski) */
+[data-testid="stMetricLabel"] {
+    color: #e63946 !important;
+    font-weight: 600 !important;
+}
+
+/* Красный цвет для значений метрик (числа, PASS и т.д.) */
+[data-testid="stMetricValue"] {
+    color: #e63946 !important;
+    font-weight: 700 !important;
+}
+
+/* Дополнительно — для дельты (если она есть) */
+[data-testid="stMetricDelta"] {
+    color: #e63946 !important;
+}
     }
 </style>
 """, unsafe_allow_html=True)

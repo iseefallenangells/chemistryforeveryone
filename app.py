@@ -599,14 +599,57 @@ if analyze_clicked:
     inchi_key = data.pop("InChIKey")
     
     c1, c2, c3, c4 = st.columns(4)
-    with c1: st.metric("MW", f"{data['MW']}")
-    with c2: st.metric("LogP", f"{data['LogP']}")
-    with c3: st.metric("TPSA", f"{data['TPSA']}")
-    with c4: 
-        if violations == 0:
-            st.metric("Lipinski", "✅ PASS")
-        else:
-            st.metric("Lipinski", f"⚠️ {violations}")
+
+# Красный цвет для метрик (HTML + CSS)
+metric_style = """
+<style>
+.red-metric {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #efefef;
+}
+.red-metric-label {
+    color: #e63946 !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+.red-metric-value {
+    color: #e63946 !important;
+    font-size: 2rem;
+    font-weight: 700;
+}
+</style>
+"""
+
+st.markdown(metric_style, unsafe_allow_html=True)
+
+with c1:
+    st.markdown(
+        f'<div class="red-metric"><div class="red-metric-label">MW</div><div class="red-metric-value">{data["MW"]}</div></div>',
+        unsafe_allow_html=True
+    )
+with c2:
+    st.markdown(
+        f'<div class="red-metric"><div class="red-metric-label">LogP</div><div class="red-metric-value">{data["LogP"]}</div></div>',
+        unsafe_allow_html=True
+    )
+with c3:
+    st.markdown(
+        f'<div class="red-metric"><div class="red-metric-label">TPSA</div><div class="red-metric-value">{data["TPSA"]}</div></div>',
+        unsafe_allow_html=True
+    )
+with c4:
+    lipinski_value = "✅ PASS" if violations == 0 else f"⚠️ {violations}"
+    st.markdown(
+        f'<div class="red-metric"><div class="red-metric-label">Lipinski</div><div class="red-metric-value">{lipinski_value}</div></div>',
+        unsafe_allow_html=True
+    )
 
     st.markdown("---")
     

@@ -105,7 +105,38 @@ section[data-testid="stSidebar"] h2 {
     color: #9b59b6 !important;
 }
     }
-    
+    /* === ФИОЛЕТОВЫЙ ТЕКСТ В БОКОВОЙ ПАНЕЛИ === */
+section[data-testid="stSidebar"] * {
+    color: #9b59b6 !important;
+}
+
+/* Особо для полей ввода — чтобы фон оставался читаемым */
+section[data-testid="stSidebar"] input,
+section[data-testid="stSidebar"] textarea,
+section[data-testid="stSidebar"] [data-baseweb="select"] input {
+    background-color: #ffffff !important;
+    color: #9b59b6 !important;
+}
+
+/* Placeholder (подсказка внутри поля) */
+section[data-testid="stSidebar"] input::placeholder,
+section[data-testid="stSidebar"] textarea::placeholder {
+    color: #d0b3e8 !important;  /* более светлый фиолетовый */
+}
+
+/* Заголовки в сайдбаре */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] .stMarkdown h2 {
+    color: #8e44ad !important;
+}
+
+/* Кнопка в сайдбаре — меняем фон и текст */
+section[data-testid="stSidebar"] .stButton button {
+    background: linear-gradient(45deg, #8e44ad, #9b59b6) !important;
+    color: white !important;
+}
 </style>
 """, unsafe_allow_html=True)
 

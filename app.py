@@ -85,7 +85,27 @@ st.markdown("""
     section[data-testid="stSidebar"] {
         background-color: #ffffff;
         border-right: 1px solid #efefef;
+        /* ===== Стили для текста в боковой панели ===== */
+section[data-testid="stSidebar"] .stMarkdown,
+section[data-testid="stSidebar"] .stSelectbox label,
+section[data-testid="stSidebar"] .stTextInput label,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] span,
+section[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] div {
+    color: #9b59b6 !important;
+}
+
+/* Цвет введённого текста в поле SMILES */
+section[data-testid="stSidebar"] input {
+    color: #9b59b6 !important;
+}
+
+/* Цвет заголовка "✨ New Search" */
+section[data-testid="stSidebar"] h2 {
+    color: #9b59b6 !important;
+}
     }
+    
 </style>
 """, unsafe_allow_html=True)
 

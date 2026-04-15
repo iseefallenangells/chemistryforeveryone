@@ -1,0 +1,6 @@
+    streamlit
+    rdkit
+    pandas
+    py3Dmol
+    Pillow
+    
